@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FILTER WORKERS / WHO WORKS IN WHICH DEPARTMANT</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>FILTER WORKERS / WHO WORKS IN WHICH DEPARTMANT</h1>
+<h4>Click to reset for another filter</h4>
+<br>
+
+<button onclick="allmembers()">ALL WORKERS</button>
+<button onclick="exportdep()">EXPORT DEPARTMANT</button>
+<button onclick="importdep()">IMPORT DEPARTMANT</button>
+<button onclick="salesdep()">SALES DEPARTMANT</button>
+<button onclick="reset()">RESET FOR ANOTHER FILTER</button>
+<br>
+<br>
+<div id="mydiv"></div>
+</body>
+<script>
+  
+let workers = [
+
+{ name:"John",age:25,position:"Sales Departmant"},
+{ name:"Tom",age:30,position:"Import Departmant"},
+{ name:"Judie",age:29,position:"Export Departmant"},
+{ name:"Angelina",age:44,position:"Sales Departmant"},
+{ name:"Chris",age:32,position:"Import Departmant"},
+{ name:"Brad",age:45,position:"Export Departmant"},
+{ name:"Bryan",age:25,position:"Sales Departmant"},
+{ name:"Thomas",age:30,position:"Import Departmant"},
+{ name:"Charlie",age:55,position:"Export Departmant"},
+
+
+];
+
+function allmembers() {
+
+for ( let i=0; i<workers.length;i++) {
+
+let newdiv = document.createElement("div");
+document.body.appendChild(newdiv);
+newdiv.classList.add("myclass");
+newdiv.innerHTML += "Name: " + workers[i].name + " " + "Age: " + workers[i].age + " " + "Position: " + workers[i].position + "<br>" ;
+
+}
+
+}
+
+function exportdep() {
+
+let filteredworkers = workers.filter( worker => worker.position == "Export Departmant" )
+
+for ( let i=0; i<filteredworkers.length;i++) {
+
+let newdiv = document.createElement("div");
+document.body.appendChild(newdiv);
+newdiv.classList.add("myclass");
+newdiv.innerHTML += "Name: " + filteredworkers[i].name + " " + "Age: " + filteredworkers[i].age +"<br>" ;
+
+}
+
+}
+
+function importdep() {
+
+let filteredworkers = workers.filter( worker => worker.position == "Import Departmant" )
+
+for ( let i=0; i<filteredworkers.length;i++) {
+
+let newdiv = document.createElement("div");
+document.body.appendChild(newdiv);
+newdiv.classList.add("myclass");
+newdiv.innerHTML += "Name: " + filteredworkers[i].name + " " + "Age: " + filteredworkers[i].age +"<br>" ;
+
+}
+
+}
+
+function salesdep() {
+
+let filteredworkers = workers.filter( worker => worker.position == "Sales Departmant" )
+
+for ( let i=0; i<filteredworkers.length;i++) {
+
+let newdiv = document.createElement("div");
+document.body.appendChild(newdiv);
+newdiv.classList.add("myclass");
+newdiv.innerHTML += "Name: " + filteredworkers[i].name + " " + "Age: " + filteredworkers[i].age +"<br>" ;
+
+}
+
+}
+
+function reset() {
+
+    window.location.reload();
+
+}
+
+
+
+</script>
+</html>
